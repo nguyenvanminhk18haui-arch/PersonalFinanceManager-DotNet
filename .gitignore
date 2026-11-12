@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+.vs/
+
+# Local SQL Server data and backups
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.trn
+
+# User-specific IDE files
+*.user
+*.suo

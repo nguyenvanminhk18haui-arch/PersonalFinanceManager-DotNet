@@ -1,0 +1,40 @@
+<Window x:Class="ThuChiCaNhan.WalletDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ví và tài khoản" Width="620" Height="540" MinWidth="500" MinHeight="420"
+        WindowStartupLocation="CenterOwner" Background="{StaticResource CanvasBrush}" ShowInTaskbar="False" Loaded="Window_Loaded" FontFamily="Segoe UI">
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0,0,0,16">
+            <TextBlock Text="Ví và tài khoản" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="Mỗi giao dịch được gắn với một nguồn tiền riêng." Foreground="#738296" FontSize="12" Margin="0,6,0,0" />
+        </StackPanel>
+        <DataGrid x:Name="WalletsGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
+                  CanUserAddRows="False" HeadersVisibility="Column" GridLinesVisibility="None" RowHeight="46"
+                  Background="White" BorderBrush="#E4EBEF" BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="TÊN VÍ" Binding="{Binding Wallet.Name}" Width="*" />
+                <DataGridTextColumn Header="LOẠI" Binding="{Binding Wallet.Type}" Width="150" />
+                <DataGridTextColumn Header="SỐ DƯ GHI NHẬN" Binding="{Binding Balance, StringFormat={}{0:N0} ₫}" Width="180" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2" Margin="0,16,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="155" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="NameInput" Height="40" Padding="10,8" Margin="0,0,10,0" VerticalContentAlignment="Center" ToolTip="Ví dụ: Tiền mặt cá nhân" />
+            <ComboBox x:Name="TypeSelector" Grid.Column="1" Height="40" Margin="0,0,10,0" SelectedIndex="0" VerticalContentAlignment="Center">
+                <ComboBoxItem Content="Tiền mặt" />
+                <ComboBoxItem Content="Ngân hàng" />
+                <ComboBoxItem Content="Ví điện tử" />
+            </ComboBox>
+            <Button Grid.Column="2" Content="＋ Thêm ví" Background="#168F78" Foreground="White" Click="Add_Click" />
+        </Grid>
+    </Grid>
+</Window>

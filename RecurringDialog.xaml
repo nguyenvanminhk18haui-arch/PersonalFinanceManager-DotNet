@@ -1,0 +1,62 @@
+<Window x:Class="ThuChiCaNhan.RecurringDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Giao dịch định kỳ" Width="950" Height="690" MinWidth="760" MinHeight="560"
+        WindowStartupLocation="CenterOwner" Background="{StaticResource CanvasBrush}" ShowInTaskbar="False" Loaded="Window_Loaded" FontFamily="Segoe UI">
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="0,0,0,16">
+            <TextBlock Text="Giao dịch định kỳ hàng tháng" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="Đến hạn, ứng dụng tự ghi giao dịch và chuyển lịch sang tháng tiếp theo." Foreground="#738296" FontSize="12" Margin="0,6,0,0" />
+        </StackPanel>
+        <DataGrid x:Name="SchedulesGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False"
+                  HeadersVisibility="Column" GridLinesVisibility="None" RowHeight="42" Background="White" BorderBrush="#E4EBEF" BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="LOẠI" Binding="{Binding Type}" Width="95" />
+                <DataGridTextColumn Header="DANH MỤC" Binding="{Binding Category.Name}" Width="125" />
+                <DataGridTextColumn Header="SỐ TIỀN" Binding="{Binding Amount, StringFormat={}{0:N0} ₫}" Width="130" />
+                <DataGridTextColumn Header="VÍ" Binding="{Binding Wallet.Name}" Width="130" />
+                <DataGridTextColumn Header="KHOẢN GHI CHÚ" Binding="{Binding Note}" Width="*" />
+                <DataGridTextColumn Header="KỲ TIẾP" Binding="{Binding NextDueDate, StringFormat=dd/MM/yyyy}" Width="110" />
+                <DataGridTemplateColumn Header="" Width="55">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="×" Tag="{Binding Id}" Click="Delete_Click" Background="Transparent" Foreground="#A33" Padding="5,2" FontSize="16" ToolTip="Xóa lịch" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Border Grid.Row="2" Margin="0,14,0,0" Padding="14" Background="White" CornerRadius="12" BorderBrush="#E8EDF3" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="145" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="TypeSelector" Height="38" Margin="0,0,8,9" SelectedIndex="0" SelectionChanged="TypeSelector_SelectionChanged" VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Chi tiêu" />
+                    <ComboBoxItem Content="Thu nhập" />
+                </ComboBox>
+                <TextBox x:Name="AmountInput" Grid.Column="1" Height="38" Padding="8,7" Margin="0,0,8,9" VerticalContentAlignment="Center" ToolTip="Số tiền VND" />
+                <ComboBox x:Name="CategorySelector" Grid.Column="2" Height="38" Margin="0,0,8,9" DisplayMemberPath="Name" VerticalContentAlignment="Center" />
+                <ComboBox x:Name="WalletSelector" Grid.Column="3" Height="38" Margin="0,0,8,9" DisplayMemberPath="Name" VerticalContentAlignment="Center" />
+                <DatePicker x:Name="DateInput" Grid.Column="4" Height="38" Margin="0,0,8,9" SelectedDateFormat="Short" ToolTip="Ngày đến hạn hàng tháng" />
+                <Button Grid.Column="5" Content="＋ Tạo lịch" Height="38" Padding="12,7" Background="#168A72" Foreground="White" Click="Add_Click" />
+                <TextBox x:Name="NoteInput" Grid.Row="1" Grid.ColumnSpan="5" Height="36" Padding="9,7" VerticalContentAlignment="Center" MaxLength="160" ToolTip="Ghi chú, ví dụ: Tiền thuê nhà" />
+                <TextBlock Grid.Row="1" Grid.Column="5" Text="Mỗi tháng" Foreground="#75839A" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="11" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

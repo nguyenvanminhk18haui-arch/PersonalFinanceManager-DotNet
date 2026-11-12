@@ -1,0 +1,54 @@
+<Window x:Class="ThuChiCaNhan.TransactionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thêm giao dịch" Width="460" Height="650" MinHeight="520" ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner" Background="{StaticResource CanvasBrush}" ShowInTaskbar="False" FontFamily="Segoe UI">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,0,0,18">
+            <TextBlock Text="Ghi một khoản mới" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="Một ghi chép nhỏ giúp bức tranh tài chính rõ hơn." Foreground="#738296" FontSize="12" Margin="0,6,0,0" />
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="LOẠI GIAO DỊCH" FontSize="10" FontWeight="Bold" Foreground="#75839A" Margin="0,0,0,8" />
+                    <ComboBox x:Name="TypeSelector" Height="40" SelectedIndex="0" SelectionChanged="TypeSelector_SelectionChanged" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Chi tiêu" />
+                        <ComboBoxItem Content="Thu nhập" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="SỐ TIỀN (VND)" FontSize="10" FontWeight="Bold" Foreground="#75839A" Margin="0,0,0,8" />
+                    <TextBox x:Name="AmountInput" Height="42" Padding="12,10" FontSize="15" VerticalContentAlignment="Center" ToolTip="Ví dụ: 85000" />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="DANH MỤC" FontSize="10" FontWeight="Bold" Foreground="#75839A" Margin="0,0,0,8" />
+                    <ComboBox x:Name="CategorySelector" Height="40" DisplayMemberPath="Name" VerticalContentAlignment="Center" />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="VÍ / TÀI KHOẢN" FontSize="10" FontWeight="Bold" Foreground="#75839A" Margin="0,0,0,8" />
+                    <ComboBox x:Name="WalletSelector" Height="40" DisplayMemberPath="Name" VerticalContentAlignment="Center" />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="NGÀY" FontSize="10" FontWeight="Bold" Foreground="#75839A" Margin="0,0,0,8" />
+                    <DatePicker x:Name="DateInput" Height="38" SelectedDateFormat="Short" />
+                </StackPanel>
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="GHI CHÚ (KHÔNG BẮT BUỘC)" FontSize="10" FontWeight="Bold" Foreground="#75839A" Margin="0,0,0,8" />
+                    <TextBox x:Name="NoteInput" Height="42" Padding="12,10" VerticalContentAlignment="Center" MaxLength="160" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <Border Grid.Row="2" BorderBrush="#E1E8EF" BorderThickness="0,1,0,0" Padding="0,16,0,0" Margin="0,12,0,0" Background="{StaticResource CanvasBrush}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Hủy" Background="Transparent" Foreground="#66758A" Click="Cancel_Click" Margin="0,0,8,0" />
+                <Button Content="Lưu giao dịch" Background="#168A72" Foreground="White" IsDefault="True" Click="Save_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

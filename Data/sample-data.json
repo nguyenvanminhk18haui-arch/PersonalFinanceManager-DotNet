@@ -1,0 +1,35 @@
+{
+  "categories": [
+    { "name": "Ăn uống", "type": "Chi tiêu" },
+    { "name": "Di chuyển", "type": "Chi tiêu" },
+    { "name": "Học tập", "type": "Chi tiêu" },
+    { "name": "Giải trí", "type": "Chi tiêu" },
+    { "name": "Nhà cửa", "type": "Chi tiêu" },
+    { "name": "Sức khỏe", "type": "Chi tiêu" },
+    { "name": "Mua sắm", "type": "Chi tiêu" },
+    { "name": "Khác", "type": "Chi tiêu" },
+    { "name": "Lương", "type": "Thu nhập" },
+    { "name": "Thưởng", "type": "Thu nhập" },
+    { "name": "Đầu tư", "type": "Thu nhập" },
+    { "name": "Thu nhập khác", "type": "Thu nhập" }
+  ],
+  "wallets": [
+    { "name": "Tiền mặt", "type": "Tiền mặt" },
+    { "name": "Tài khoản ngân hàng", "type": "Ngân hàng" },
+    { "name": "MoMo", "type": "Ví điện tử" },
+    { "name": "ZaloPay", "type": "Ví điện tử" }
+  ],
+  "transactions": [
+    { "amount": 300000.00, "type": "Chi tiêu", "note": "", "date": "2026-11-12T00:00:00", "categoryName": "Ăn uống", "categoryType": "Chi tiêu", "walletName": "Tiền mặt" },
+    { "amount": 3000000.00, "type": "Thu nhập", "note": "", "date": "2026-11-12T00:00:00", "categoryName": "Lương", "categoryType": "Thu nhập", "walletName": "Tiền mặt" },
+    { "amount": 20000.00, "type": "Chi tiêu", "note": "", "date": "2026-11-12T00:00:00", "categoryName": "Di chuyển", "categoryType": "Chi tiêu", "walletName": "Tiền mặt" },
+    { "amount": 3000.00, "type": "Chi tiêu", "note": "", "date": "2026-11-12T00:00:00", "categoryName": "Ăn uống", "categoryType": "Chi tiêu", "walletName": "MoMo" },
+    { "amount": 30000.00, "type": "Thu nhập", "note": "", "date": "2026-11-12T00:00:00", "categoryName": "Đầu tư", "categoryType": "Thu nhập", "walletName": "MoMo" }
+  ],
+  "budgets": [
+    { "categoryName": "Ăn uống", "categoryType": "Chi tiêu", "month": "2026-11-01T00:00:00", "limit": 2000000.00 }
+  ],
+  "recurringTransactions": [
+    { "amount": 50000000.00, "type": "Chi tiêu", "note": "", "categoryName": "Ăn uống", "categoryType": "Chi tiêu", "walletName": "MoMo", "nextDueDate": "2026-12-13T00:00:00", "dayOfMonth": 13, "isActive": true }
+  ]
+}
